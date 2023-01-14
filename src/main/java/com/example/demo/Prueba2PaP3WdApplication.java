@@ -30,20 +30,20 @@ public class Prueba2PaP3WdApplication implements CommandLineRunner {
 
 		// Opcion 1
 		CuentaBanciaria bancariaOrigen = new CuentaBanciaria();
-		bancariaOrigen.setNumero("0123456789");
+		bancariaOrigen.setNumero("0123456787");
 		bancariaOrigen.setCedula("1725840538");
 		bancariaOrigen.setTipo("A");
 		bancariaOrigen.setSaldo(new BigDecimal(200));
 
-		// this.bancariaService.crear(bancaria);
+		this.bancariaService.crear(bancariaOrigen);
 
 		CuentaBanciaria bancariaDestino = new CuentaBanciaria();
-		bancariaDestino.setNumero("9876543210");
+		bancariaDestino.setNumero("9876543218");
 		bancariaDestino.setCedula("1725840538");
 		bancariaDestino.setTipo("C");
 		bancariaDestino.setSaldo(new BigDecimal(100));
 
-		// this.bancariaService.crear(bancaria2);
+		this.bancariaService.crear(bancariaDestino);
 
 		// Opcion 2
 		this.gestorService.transferir("0123456789", "9876543210", new BigDecimal(100));
