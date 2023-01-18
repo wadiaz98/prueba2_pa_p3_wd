@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.modelo.CuentaBanciaria;
-import com.example.demo.modelo.Transferencia;
+import com.example.demo.modelo.TransferenciaPr;
 import com.example.demo.repository.ICuentaBancariaRepository;
 import com.example.demo.repository.ITransferenciaRepository;
 
@@ -22,7 +22,7 @@ public class TransferenciaGestorServiceImpl implements ITransferenciaGestorServi
 	@Override
 	public void transferir(String numeroOrigen, String numeroDestino, BigDecimal monto) {
 		// TODO Auto-generated method stub
-		Transferencia transferencia = new Transferencia();
+		TransferenciaPr transferencia = new TransferenciaPr();
 		transferencia.setFecha(LocalDateTime.of(2023, 01, 13, 0, 0));
 		transferencia.setOrigen(numeroOrigen);
 		transferencia.setDestino(numeroDestino);

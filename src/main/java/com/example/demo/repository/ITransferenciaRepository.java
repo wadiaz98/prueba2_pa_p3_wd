@@ -1,10 +1,10 @@
 package com.example.demo.repository;
 
-import com.example.demo.modelo.Transferencia;
+import com.example.demo.modelo.TransferenciaPr;
 
 public interface ITransferenciaRepository {
 
-	public void insertar(Transferencia transferencia);
+	public void insertar(TransferenciaPr transferencia);
 
-	public Transferencia buscar(Integer id);
+	public TransferenciaPr buscar(Integer id);
 }

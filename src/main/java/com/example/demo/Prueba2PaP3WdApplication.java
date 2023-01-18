@@ -7,18 +7,18 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.modelo.CuentaBanciaria;
-import com.example.demo.service.ICuentaBancariaService;
-import com.example.demo.service.ITransferenciaGestorService;
+import com.example.demo.correccion.modelo.Cuenta;
+import com.example.demo.correccion.service.ICuentaService;
+import com.example.demo.correccion.service.ITransferenciaService;
 
 @SpringBootApplication
 public class Prueba2PaP3WdApplication implements CommandLineRunner {
 
 	@Autowired
-	private ICuentaBancariaService bancariaService;
+	private ICuentaService bancariaService;
 
 	@Autowired
-	private ITransferenciaGestorService gestorService;
+	private ITransferenciaService transferenciaService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Prueba2PaP3WdApplication.class, args);
@@ -29,27 +29,29 @@ public class Prueba2PaP3WdApplication implements CommandLineRunner {
 		// TODO Auto-generated method stub
 
 		// Opcion 1
-		CuentaBanciaria bancariaOrigen = new CuentaBanciaria();
-		bancariaOrigen.setNumero("0123456787");
-		bancariaOrigen.setCedula("1725840538");
-		bancariaOrigen.setTipo("A");
-		bancariaOrigen.setSaldo(new BigDecimal(200));
+		Cuenta cuentaOrigen = new Cuenta();
+		cuentaOrigen.setNumero("0123456789");
+		cuentaOrigen.setCedula("1725840538");
+		cuentaOrigen.setTipo("A");
+		cuentaOrigen.setSaldo(new BigDecimal(200));
 
-		this.bancariaService.crear(bancariaOrigen);
+		this.bancariaService.crear(cuentaOrigen);
 
-		CuentaBanciaria bancariaDestino = new CuentaBanciaria();
-		bancariaDestino.setNumero("9876543218");
-		bancariaDestino.setCedula("1725840538");
-		bancariaDestino.setTipo("C");
-		bancariaDestino.setSaldo(new BigDecimal(100));
+		Cuenta cuentaDestino = new Cuenta();
+		cuentaDestino.setNumero("9876543210");
+		cuentaDestino.setCedula("1725840538");
+		cuentaDestino.setTipo("C");
+		cuentaDestino.setSaldo(new BigDecimal(100));
 
-		this.bancariaService.crear(bancariaDestino);
+		this.bancariaService.crear(cuentaDestino);
 
 		// Opcion 2
-		this.gestorService.transferir("0123456789", "9876543210", new BigDecimal(100));
+		this.transferenciaService.realizar("0123456789", "9876543210", new BigDecimal(10));
 
-		// Opcion3
-		this.bancariaService.buscar(bancariaOrigen.getNumero());
+		// Opcion 3
+		System.out.println("El saldo actual es: ");
+		System.out.println(this.bancariaService.buscar("0123456789").getSaldo());
+
 	}
 
 }

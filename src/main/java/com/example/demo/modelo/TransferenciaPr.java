@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "transferencia")
-public class Transferencia {
+public class TransferenciaPr {
 
 	@Id
 	@Column(name = "trans_id")

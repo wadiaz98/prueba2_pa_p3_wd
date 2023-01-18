@@ -2,7 +2,7 @@ package com.example.demo.repository;
 
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.modelo.Transferencia;
+import com.example.demo.modelo.TransferenciaPr;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -16,15 +16,15 @@ public class TransferenciaRepositoryImpl implements ITransferenciaRepository {
 	private EntityManager entityManager;
 
 	@Override
-	public void insertar(Transferencia transferencia) {
+	public void insertar(TransferenciaPr transferencia) {
 		// TODO Auto-generated method stub
 		this.entityManager.persist(transferencia);
 	}
 
 	@Override
-	public Transferencia buscar(Integer id) {
+	public TransferenciaPr buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return this.entityManager.find(Transferencia.class, id);
+		return this.entityManager.find(TransferenciaPr.class, id);
 	}
 
 }
